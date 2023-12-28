@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #E3F2FD;
+}
+  
+h1 {
+    text-align: center;
+}
+  
+.outer-wrapper {
+    width: 100%;
+    max-width: 800px; /* Adjust as needed */
+    margin: 0 auto;
+    /* Additional styles as needed */
+    padding: 30px 35px 35px;
+    background-color: aliceblue;
+    border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.wrapper {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    /* Additional styles as needed */
+}
+#image-container {
+    position: relative;
+    width: 150%; /* Adjust this percentage to resize the image container */
+    margin: 20px auto;
+    margin-right: 50px;
+}
+  
+#image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+  
+.line {
+    position: absolute;
+    border-bottom: 2px solid blue;
+    transform-origin: top left;
+    display: none; /* Initially hide the line */
+}
+  
+p {
+    text-align: center;
+    margin-bottom: 10px;
+}
+#distance {
+    font-weight: bold;
+    color: #ff5733; /* Example color for distance span */
+} 
+.container .save-img{
+    margin-left: 5px;
+    background: #5372F0;
+    border: 1px solid #5372F0;
+  }
+h1 {
+    font-size: 28px; /* Example font size */
+    color: #333; /* Example color */
+    margin-bottom: 10px; /* Example margin */
+    /* Additional styles as needed */
+}
+
+p {
+    font-size: 16px; /* Example font size */
+    line-height: 1.6; /* Example line height */
+    color: #666; /* Example color */
+    /* Additional styles as needed */
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Image Editor in JavaScript | CodingNepal</title>
+    <link href="static/css/style1.css" rel="stylesheet">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+
+  </head>
+  <body>
+    <div class="container disable">
+        
+        <div class="wrapper">
+            <div class="editor-panel">
+                <div class="filter">
+                    <label class="title">Filters</label>
+                    <div class="options">
+                        <button id="brightness" class="active">Brightness</button>
+                        <button id="inversion">Inversion</button>
+                        <button id="contrast">Contrast</button>
+                    </div>
+                    <div class="slider">
+                        <div class="filter-info">
+                            <p class="name">Brighteness</p>
+                            <p class="value">100%</p>
+                        </div>
+                        <input type="range" value="100" min="0" max="200">
+                    </div>
+                </div>
+                <div class="rotate">
+                    <label class="title">Rotate & Flip</label>
+                    <div class="options">
+                        <button id="left"><i class="fa-solid fa-rotate-left"></i></button>
+                        <button id="right"><i class="fa-solid fa-rotate-right"></i></button>
+                        <button id="horizontal"><i class='bx bx-reflect-vertical'></i></button>
+                        <button id="vertical"><i class='bx bx-reflect-horizontal' ></i></button>
+                    </div>
+                    <label class="title">zoom-in & zoom-out</label>
+                    <div class="options">
+                        <button id="zoom-in"><i class='bx bx-zoom-in'></i></button>
+                        <button id="zoom-out"><i class='bx bx-zoom-out'></i></button>
+                    </div>
+                    
+                </div>
+                <div class="zoom">
+                  <label class="title">Image Size</label>
+                  <div class="options">
+                      <input type="range" id="image-zoom" min="1" max="3" step="0.1" value="1">
+                  </div>
+              </div>
+            </div>
+            <div class="preview-img">
+              
+              <img src="data:image/jpeg;base64,{{ image_data }}" alt="Preview Image" id="preview-img">
+            
+                
+            </div>
+            <div id="dicomContainer"></div>
+        </div>
+        <div class="controls">
+            <button class="reset-filter">Reset Filters</button>
+            
+            <div class="row">
+                <button class="save-img1">save image</button>
+                <button class="save-img">go to measure</button>
+
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <script src="static/js/script.js"></script>
+    
+
+    
+  </body>
+</html>

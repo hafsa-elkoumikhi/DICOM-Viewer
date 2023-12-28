@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Distance Calculator</title>
+  <link href="static/css/calcul.css" rel="stylesheet">
+  
+</head>
+<body>
+  
+  <div class="outer-wrapper">
+    <div class="wrapper">
+        <div class="image-container" id="image-container">
+            <img id="image" alt="Your Image">
+        </div>
+        <div class="container">
+          <h1>Calculate tumor measurement </h1>
+            <p>this user-friendly tool enables you to calculate the distance between two designated points within a mammogram image..</p>
+            <p>Distance: <span id="distance">---</span> mm</p>
+            
+        </div>
+    </div>
+</div>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const editedImageData = localStorage.getItem('editedImageData');
+      const imageElement = document.getElementById('image');
+
+      if (editedImageData && imageElement) {
+        imageElement.src = editedImageData;
+      }
+    });
+
+    const imageContainer = document.getElementById('image-container');
+    const distanceDisplay = document.getElementById('distance');
+    const lines = [];
+    let points = [];
+
+    function calculateDistance() {
+      const [point1, point2] = points;
+      const dx = point2[0] - point1[0];
+      const dy = point2[1] - point1[1];
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      const dividedDistance = distance * 0.41; // Divide the distance by 2
+      distanceDisplay.textContent = dividedDistance.toFixed(2);
+      
+
+      const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+      const line = document.createElement('div');
+      line.className = 'line';
+      line.style.width = distance + 'px';
+      line.style.transform = `rotate(${angle}deg)`;
+      line.style.top = point1[1] + 'px';
+      line.style.left = point1[0] + 'px';
+      imageContainer.appendChild(line);
+      lines.push(line);
+      line.style.display = 'block'; // Show the line
+    }
+
+    imageContainer.addEventListener('click', function(event) {
+      const rect = event.target.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      if (points.length < 2) {
+        points.push([x, y]);
+      } else {
+        points = [[x, y]];
+        lines.forEach(line => line.remove());
+        lines.length = 0;
+        distanceDisplay.textContent = '---';
+      }
+
+      if (points.length === 2) {
+        calculateDistance();
+      }
+    });
+  </script>
+</body>
+</html>
